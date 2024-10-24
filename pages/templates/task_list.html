@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}List of Tasks{% endblock title %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/1/list.css' %}">
+    {% if request.session.theme == '2' %}
+    <link rel="stylesheet" href="{% static 'css/2/list.css' %}">
+    {% elif request.session.theme == '3' %}
+    <link rel="stylesheet" href="{% static 'css/3/list.css' %}">
+    {% endif %}
+{% endblock head %}
+{% block body %}
+{% if request.user.is_authenticated %}
+<div class='header'>
+<p class='username'>Hello {{ request.user|capfirst }}!</p>
+<form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" class='logout'>Logout</button>
+</form>    
+</div>
+{% else %}
+<a href="{% url 'login' %}" class='login'>Login</a>
+{% endif %}
+{% if count > 1 %}
+<p class='count'>There are <b>{{ count }}</b> uncompleted task!<p>
+{% elif count == 1 %}
+<p class='count'>There is <b>1</b> uncompleted task!<p>
+{% else %}
+<p class='count'>No uncompleted task!<p>
+{% endif %}
+
+
+<div class='top-bar'>
+    <a href="{% url 'task_create' %}" class='new-task'>New Task</a>
+    <form method='GET' class='search-bar'>
+        <input type='text' name='q' value="{{ request.GET.q }}" class='search-area' autocomplete="off" />
+        <input type='submit' value='Search' class='search-button' />
+    </form>
+</div>
+<hr>
+
+<table>
+    {% if tasks|length > 0 %}
+    <tr class='first-row'>
+        <th class='task-name' id='task-label' colspan='3'>Tasks</th>
+    </tr>
+    {% endif %}
+    {% for task in tasks %}
+    <tr class='task-container'>
+        {% if task.complete == False %}
+        <th class='task-name uncompleted' onclick="window.location.href='{% url 'task_update' task.id %}'">{{ task.title }}</th>
+        {% else %}
+        <th class='task-name completed' onclick="window.location.href='{% url 'task_update' task.id %}'">{{ task.title }}</th>
+        {% endif %}
+        <th class='delete-th'><a href="{% url 'task_delete' task.id %}" class='delete'>Discard</a></th>
+    </tr>
+    {% empty %}
+    <h2>There is no task.</h2>
+    {% endfor %}
+</table>
+{% endblock body %}

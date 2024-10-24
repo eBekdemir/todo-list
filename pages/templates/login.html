@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/1/login.css' %}">
+    {% if request.session.theme == '2' %}
+    <link rel="stylesheet" href="{% static 'css/2/login.css' %}">
+    {% elif request.session.theme == '3' %}
+    <link rel="stylesheet" href="{% static 'css/3/login.css' %}">
+    {% endif %}
+    <script>
+        function autoFocusInput() {
+            document.getElementById('id_username').focus();
+        }        
+        window.onload = autoFocusInput;
+    </script>
+{% endblock head %}
+{% block title %}Login{% endblock title %}
+{% block body %}
+<h1 class="head-note">Login</h1>
+<br>
+<form method='POST' class="form">
+    {% csrf_token %}
+    <div class='input'>
+        <label for='id_username'>Username: </label>
+        <input type="text" name="username" id="id_username" value="{{ form.username.value|default:'' }}">
+    </div>
+    <div class='input'>
+        <label for='id_passwords'>Password: </label>
+        <input type="password" name="password" id="id_password" value="{{ form.password.value|default:'' }}">
+    </div>
+    <br>
+    <input type='submit' value='Login' class="save-button" />
+</form>
+<a href="{% url 'signup' %}" class="link">Create an Account</a>
+
+{% endblock body %}

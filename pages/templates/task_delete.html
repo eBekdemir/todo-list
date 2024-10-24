@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/1/update.css' %}">
+    {% if request.session.theme == '2' %}
+    <link rel="stylesheet" href="{% static 'css/2/update.css' %}">
+    {% elif request.session.theme == '3' %}
+    <link rel="stylesheet" href="{% static 'css/3/update.css' %}">
+    {% endif %}
+{% endblock head %}
+{% block title %}{{ task.title|capfirst }}{% endblock title %}
+
+{% block body %}
+<h1 class='head-note'>DISCARD</h1>
+<a href="{% url 'task_list' %}" id='gotolist'>Go to list</a>
+<form method='POST' class='form-delete'>
+    {% csrf_token %}
+    {% if task.complete %}
+    <p id='question'>Are you sure you want to delete this task?</p>
+    {% else %}
+    <p id='question'>You didn't finish this task yet. Are you sure you want to delete?</p>
+    {% endif %}
+    <p id='the-task'>{{ task }}</p>
+    <div class='buttons'>
+    <input type='submit' value='Delete' id='delete-confirmation'>
+    <a href="{% url 'task_update' task.id %}" id='to-updatebutton'>Update</a>
+    </div>
+    </form>
+{% endblock body %}

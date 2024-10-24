@@ -1,0 +1,112 @@
+/* Container for the registration form */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #313131;
+    color: #FFB6C1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: black;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+}
+
+
+/* Headline style */
+h1.head-note {
+    font-size: 2rem;
+    color: #FFB6C1;
+    margin-bottom: 20px;
+}
+
+/* Link styles */
+.link {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #008cba;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: #000080; /* Darker shade on hover */
+}
+
+/* Form styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjusted for better spacing */
+    align-items: center;
+}
+
+/* Input field styles */
+input[type='text'], input[type='password'], input[type='email'] {
+    padding: 12px;
+    width: 80%; /* Adjusted width for better visual proportion */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #FFB6C1;
+    background-color: #313131;
+}
+
+/* Adjust help text (like password requirements) */
+
+
+/* Submit button styles */
+button.save-button {
+    background-color: #008cba;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 40%; /* Adjusted width to match input fields */
+}
+
+button.save-button:hover {
+    background-color: #000080;
+}
+
+/* Additional styling for form layout */
+.input {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+.error-message {
+    color: #FF6347;  /* Light red color */
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    text-align: center;
+    margin:0 auto;
+}
+.input-area {
+    text-align: left;
+    width: 40%;
+    max-width: 300px;
+}

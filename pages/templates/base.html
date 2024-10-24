@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}ToDo{% endblock title %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .theme-div {
+                display: flex;
+                width: 40%;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0 auto;
+            }
+            .theme {
+                background-color: #008cba;
+                color: white;
+                border: none;
+                padding: 12px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.8rem;
+                transition: background-color 0.3s ease;
+                margin: 0 auto;
+            }
+            .theme:hover {
+                background-color: #000080;
+            }
+        </style>
+        {% block head %}{% endblock head %}
+    </head>
+    <body>
+        <div class='container'>
+            <div class='theme-div'>
+                <form method="get" action="{% url 'set_theme' '1' %}">
+                    <button type="submit" class='theme'>Theme 1</button>
+                </form>
+
+                <form method="get" action="{% url 'set_theme' '2' %}">
+                    <button type="submit" class='theme'>Theme 2</button>
+                </form>
+
+                <form method="get" action="{% url 'set_theme' '3' %}">
+                    <button type="submit" class='theme'>Theme 3</button>
+                </form>
+            </div>
+            <br>
+            {% block body %}
+                ...
+            {% endblock body %}
+        </div>
+    </body>
+</html>

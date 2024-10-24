@@ -1,0 +1,254 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #74717d;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #40464d;
+    color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 700px;
+}
+
+h1.head-note {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+a#gotolist {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #008cba;
+    font-weight: bold;
+}
+
+.title-done {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-done label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.title input{
+    padding: 10px;
+    width: 100%;
+    max-width: 800px;
+    width:25rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #74717d;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-delete {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+
+.form-group input {
+    padding: 10px;
+    width: 100%;
+    max-width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #74717d;
+}
+
+.form-group textarea {
+    padding: 10px;
+    width: 100%;
+    max-width: 675px;
+    width: 675px;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #74717d;
+}
+
+input[type='submit'].save-button {
+    background-color: #008cba;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    width: 100%;
+    max-width: 200px;
+}
+
+input[type='submit'].save-button:hover {
+    background-color: #000080;
+}
+
+#to-updatebutton, #delete-confirmation {
+    display: inline-block;
+    align-self: center;
+    width: 100%;
+    max-width: 200px;
+    text-align: center; 
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;    
+    border: none;
+    font-size: 1rem;
+}
+
+#to-updatebutton {
+    background-color: #008cba;
+    color: #fff;
+    text-decoration: none;
+}
+#to-updatebutton:hover {
+    background-color: #000080;
+}
+#delete-confirmation {
+    background-color: #b69ecf;
+    color: #000;
+}
+#delete-confirmation:hover {
+    color: #fff;
+    background-color: #9d0208;
+}
+a.delete-button {
+    display: inline-block;
+    background-color: #b69ecf;
+    color: #000;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+}
+
+a.delete-button:hover {
+    color: #fff;
+    background-color: #9d0208;
+}
+
+
+/* Toggle Switch */
+.switch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.dead-line {
+    justify-content: flex-start;
+}
+
+
+#question {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+#the-task {
+    font-style: italic;
+    margin-bottom: 50px;
+}

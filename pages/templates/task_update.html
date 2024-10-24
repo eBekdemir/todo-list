@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/1/update.css' %}">
+    {% if request.session.theme == '2' %}
+    <link rel="stylesheet" href="{% static 'css/2/update.css' %}">
+    {% elif request.session.theme == '3' %}
+    <link rel="stylesheet" href="{% static 'css/3/update.css' %}">
+    {% endif %}
+{% endblock head %}
+{% block title %}{{ form.title.value|capfirst }}{% endblock title %}
+{% block body %}
+<h1 class='head-note'>The Task</h1>
+<a href="{% url 'task_list' %}" id='gotolist'>Go to list</a>
+<form method='POST' class='form'>
+    {% csrf_token %}
+    <div class='title-done'>
+        <div class='title flex'>
+            <label for='id_title'>Title:</label>
+            {{ form.title }}
+        </div>
+        <div class='switch flex'>
+            <label for='id_complete'>Done:</label>
+            <label class="toggle">
+                <input type="checkbox" name="complete" id="id_complete" {% if form.complete.value %}checked{% endif %}>
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    <div class='form-group'>
+        <label for='id_description'></label>
+        <textarea id="id_description" name="description" placeholder='Description...'>{{ form.description.value }}</textarea>
+    </div>
+    <div class='form-group dead-line flex'>
+        <label for='id_dead_line'>Dead Line:</label>
+        <input type="date" name="dead_line" id="id_dead_line" value="{{ form.dead_line.value|date:'Y-m-d' }}">
+    </div>
+    <div class='buttons'>
+    <input type='submit' value='Update' class='save-button'>
+    <a href="{% url 'task_delete' task.id %}" class='delete-button'>Discard</a>
+    </div>
+</form>
+{% endblock body %}
