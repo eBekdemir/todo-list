@@ -3,7 +3,7 @@
 A simple and elegant To-Do List application built with Django. This app allows users to create, read, update, and delete tasks efficiently, as well as create new users.
 
 
-<video controls src="a_preview.mp4" title="Title"></video>
+https://github.com/user-attachments/assets/5714e77f-210e-4677-89a1-8a7efd66f162
 
 ## Features
 
@@ -22,6 +22,9 @@ A simple and elegant To-Do List application built with Django. This app allows u
 - SQLite
 - HTML/CSS
 - JavaScript (minimal)
+
+
+
 
 
 ## Installation
@@ -65,9 +68,6 @@ Then you can access the app at http://127.0.0.1:8000/.
 ## Usage
 Register a new user or log in with your credentials.
 Create new tasks and manage your to-do list efficiently.
-Use the interface to mark tasks as complete or delete them.
-Running Tests
-To ensure the application works correctly, run the following command:
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
